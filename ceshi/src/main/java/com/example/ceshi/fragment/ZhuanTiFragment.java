@@ -18,12 +18,10 @@ import com.example.ceshi.bean.ZhuanTiBean;
 import com.example.ceshi.presenter.NetPresenter;
 import com.example.ceshi.view.NetView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ZhuanTiFragment extends Fragment implements NetView {
     private RecyclerView mMyRec;
-    private List<ZhuanTiBean.DataBeanX.DataBean> list;
     private ZhuanTiAdapter zhuanTiAdapter;
     private NetPresenter netPresenter;
 
@@ -32,7 +30,6 @@ public class ZhuanTiFragment extends Fragment implements NetView {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = LayoutInflater.from(getActivity()).inflate(R.layout.zhuanti_fragment, null);
         netPresenter = new NetPresenter(this);
-        netPresenter.getData();
         initView(view);
         return view;
     }
@@ -40,19 +37,20 @@ public class ZhuanTiFragment extends Fragment implements NetView {
     private void initView(@NonNull final View itemView) {
         mMyRec = (RecyclerView) itemView.findViewById(R.id.MyRec);
         mMyRec.setLayoutManager(new LinearLayoutManager(getActivity()));
-        list = new ArrayList<>();
-        zhuanTiAdapter = new ZhuanTiAdapter(list,getActivity());
+        zhuanTiAdapter = new ZhuanTiAdapter(getActivity());
         mMyRec.setAdapter(zhuanTiAdapter);
+        netPresenter.getData();
     }
 
     @Override
     public void setData(ZhuanTiBean zhuanTiBean) {
         List<ZhuanTiBean.DataBeanX.DataBean> data = zhuanTiBean.getData().getData();
         zhuanTiAdapter.initData(data);
+        zhuanTiAdapter.notifyDataSetChanged();
     }
 
     @Override
     public void showToast(String str) {
-        Toast.makeText(getActivity(), str, Toast.LENGTH_SHORT).show();
+
     }
 }

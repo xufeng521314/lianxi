@@ -1,1 +1,1 @@
-include ':app', ':ceshi'
+include ':app', ':ceshi', ':zidingyi'

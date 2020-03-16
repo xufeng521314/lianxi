@@ -24,12 +24,11 @@ import java.util.List;
 
 public class ZhuanTiAdapter extends RecyclerView.Adapter<ZhuanTiAdapter.ViewHolder> {
 
-    private List<ZhuanTiBean.DataBeanX.DataBean> list;
+    private List<ZhuanTiBean.DataBeanX.DataBean> list=new ArrayList<>();
     private Context context;
     private ZhuanTiBean.DataBeanX.DataBean dataBean;
 
-    public ZhuanTiAdapter(List<ZhuanTiBean.DataBeanX.DataBean> list, Context context) {
-        this.list = list;
+    public ZhuanTiAdapter(Context context) {
         this.context = context;
     }
 

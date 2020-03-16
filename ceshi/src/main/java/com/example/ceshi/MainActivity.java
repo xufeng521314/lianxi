@@ -39,7 +39,6 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public boolean onNavigationItemSelected(MenuItem menuItem) {
-                FragmentTransaction ft = fragmentManager.beginTransaction();
                 switch (menuItem.getItemId()){
                     case R.id.zhuanti:
                         FragmentTransaction fragmentTransaction1 = fragmentManager.beginTransaction();

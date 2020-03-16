@@ -7,6 +7,6 @@ import retrofit2.http.GET;
 
 public interface MyApi {
     String url="https://cdwan.cn/api/";
-    @GET("topic/list")
-    Observable<ZhuanTiBean> getData();
+    @GET("topic/list?page=1&size=10")
+    Observable<ZhuanTiBean> getZhuanTi();
 }
